@@ -2,12 +2,14 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { api } from "../services/api";
 import { useAuth } from "../store/useAuth";
+import { useToast } from "../store/useToast";
 
 export default function Login() {
    const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const login = useAuth((s) => s.login);
   const nav = useNavigate();
+   const showToast = useToast((s) => s.showToast);
 
  const handleLogin = async () => {
     try {
@@ -15,7 +17,7 @@ export default function Login() {
       login(res.data.user, res.data.token);
       nav("/chat");
     } catch (err) {
-      alert(err.response?.data?.message || "Login failed");
+      showToast("Login failed", "error");
     }
   };
 

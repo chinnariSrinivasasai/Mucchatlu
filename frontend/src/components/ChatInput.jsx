@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { useChat } from "../store/useChat";
 import { api } from "../services/api";
 import { socket } from "../services/socket";
+import { useToast } from "../store/useToast";
 
 export default function ChatInput() {
   const [text, setText] = useState("");
@@ -10,19 +11,21 @@ export default function ChatInput() {
 
   const selectedChat = useChat((s) => s.selectedChat);
   const addMessage = useChat((s) => s.addMessage);
+  const showToast = useToast((s) => s.showToast);
 
   const handleSend = async () => {
     if (!selectedChat) return;
 
     try {
       // ======================
-      // 📎 FILE (later backend)
+      // 📎 FILE 
       // ======================
-      if (previewFile) {
-        alert("File sending will be added next step");
-        setPreviewFile(null);
-        return;
-      }
+   if (previewFile) {
+  showToast("File sending will be added in next update", "info");
+  setPreviewFile(null);
+  return;
+}
+
 
       if (!text.trim()) return;
 
@@ -52,7 +55,7 @@ export default function ChatInput() {
       setText("");
     } catch (err) {
       console.error(err);
-      alert("Failed to send message");
+      showToast("Failed to send message", "error");
     }
   };
 
