@@ -39,7 +39,7 @@ export default function Sidebar() {
       <div
         className="h-14 flex items-center justify-between px-4 font-bold text-lg border-b text-white dark:bg-mycolour dark:text-white"
       >
-        <span className="flex" style={{ color: "#ff4e08", fontSize: "18px" }}><img src="public\thunder.png" alt="Mucchatlu" width={30} />Mucchatlu</span>
+        <span className="flex" style={{ color: "#ff4e08", fontSize: "18px" }}>Mucchatlu</span>
 
         <div className="flex gap-3">
           <button
