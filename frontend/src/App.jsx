@@ -8,12 +8,14 @@ import { useAuth } from "./store/useAuth";
 export default function App() {
   const token = useAuth((s) => s.token);
   return (
+    <>
     <Routes>
       <Route path="/" element={<Navigate to={token ? "/chat" : "/login"} />} />
       <Route path="/login" element={token ? <Navigate to="/chat" /> : <Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/chat" element={token ? <Chat /> : <Navigate to="/login" />} />
-      <ToastContainer />
     </Routes>
+    <ToastContainer />
+    </>
   );
 }
