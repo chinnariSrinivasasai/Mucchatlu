@@ -18,6 +18,8 @@
 
   --text-main: #111B21;
   --text-sub: #667781;
+  --text-mymsg: #000000;      /* high contrast text for my messages */
+  --text-othermsg: #000000;   /* high contrast text for other messages */
 
   --border-color: #D1D7DB;
 }
@@ -34,6 +36,8 @@
 
   --text-main: #E9EDEF;
   --text-sub: #8696A0;
+  --text-mymsg: #FFFFFF;      /* high contrast text for my messages */
+  --text-othermsg: #E9EDEF;   /* high contrast text for other messages */
 
   --border-color: #2A3942;
 }
@@ -68,10 +72,16 @@ body {
 /* Message bubbles */
 .bg-mymsg {
   background-color: var(--bg-mymsg);
+  color: var(--text-mymsg);
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .bg-othermsg {
   background-color: var(--bg-othermsg);
+  color: var(--text-othermsg);
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 /* Text helpers */
@@ -113,4 +123,52 @@ input::placeholder, textarea::placeholder {
 ::-webkit-scrollbar-thumb {
   background: var(--border-color);
   border-radius: 10px;
+}
+/* ================================
+   📱 RESPONSIVE MESSAGE BUBBLES
+   ================================ */
+
+/* Mobile-first (extra small screens) */
+@media (max-width: 480px) {
+  .message-bubble-container {
+    max-width: 85% !important;
+    padding: 0.25rem 0;
+  }
+
+  .bg-mymsg,
+  .bg-othermsg {
+    font-size: 0.875rem;
+    padding: 0.35rem 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+}
+
+/* Small screens (480px and up) */
+@media (min-width: 480px) and (max-width: 768px) {
+  .message-bubble-container {
+    max-width: 75% !important;
+    padding: 0.5rem 0;
+  }
+
+  .bg-mymsg,
+  .bg-othermsg {
+    font-size: 0.875rem;
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 0.35rem;
+  }
+}
+
+/* Medium screens (768px and up) */
+@media (min-width: 768px) {
+  .message-bubble-container {
+    max-width: 65% !important;
+    padding: 0.75rem 0;
+  }
+
+  .bg-mymsg,
+  .bg-othermsg {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+  }
 }

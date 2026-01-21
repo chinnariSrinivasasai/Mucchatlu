@@ -41,7 +41,7 @@ export default function MessageBubble({
 
   return (
     <div
-      className={`w-full flex ${isMe ? "justify-end" : "justify-start"} mb-2`}
+      className={`w-full flex ${isMe ? "justify-end" : "justify-start"} message-bubble-container`}
       onContextMenu={(e) => {
         e.preventDefault();
         setShowMenu(true);
@@ -51,14 +51,15 @@ export default function MessageBubble({
       <div
         className={`
           relative
-          px-3 pt-2 pb-5
+          px-4 py-2
           rounded-lg
           shadow
           text-sm
           whitespace-pre-wrap
           break-words
+          overflow-wrap-break-word
           min-w-[60px]
-          max-w-[70%]
+          max-w-[65%]
           ${
             isMe
               ? "bg-[#DCF8C6] text-black rounded-br-none"
@@ -94,7 +95,7 @@ export default function MessageBubble({
         {!deleted && !editing && (
           <>
             {type === "text" && (
-              <div className="pr-10 leading-relaxed">
+              <div className="pr-12 leading-relaxed word-break">
                 {content}
               </div>
             )}
