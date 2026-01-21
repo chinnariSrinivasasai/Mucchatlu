@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ================================
+   🌈 MUCCHATLU - WHATSAPP THEME
+   ================================ */
+
+/* -------- LIGHT THEME (default) -------- */
+:root {
+  --bg-app: #EDEDED;          /* main app background */
+  --bg-panel: #075E54;        /* top bars */
+  --bg-sidebar: #FFFFFF;     /* sidebar */
+  --bg-chat: #E5DDD5;         /* chat background */
+
+  --bg-mymsg: #DCF8C6;        /* my messages */
+  --bg-othermsg: #FFFFFF;     /* other messages */
+
+  --text-main: #111B21;
+  --text-sub: #667781;
+
+  --border-color: #D1D7DB;
+}
+
+/* -------- DARK THEME -------- */
+.dark {
+  --bg-app: #0B141A;
+  --bg-panel: #202C33;
+  --bg-sidebar: #111B21;
+  --bg-chat: #0B141A;
+
+  --bg-mymsg: #005C4B;
+  --bg-othermsg: #1F2C34;
+
+  --text-main: #E9EDEF;
+  --text-sub: #8696A0;
+
+  --border-color: #2A3942;
+}
+
+/* ================================
+   🌍 GLOBAL BASE STYLES
+   ================================ */
+
+body {
+  background-color: var(--bg-app);
+  color: var(--text-main);
+}
+
+/* App areas */
+.bg-app {
+  background-color: var(--bg-app);
+}
+
+.bg-panel {
+  background-color: var(--bg-panel);
+  color: white;
+}
+
+.bg-sidebar {
+  background-color: var(--bg-sidebar);
+}
+
+.bg-chat {
+  background-color: var(--bg-chat);
+}
+
+/* Message bubbles */
+.bg-mymsg {
+  background-color: var(--bg-mymsg);
+}
+
+.bg-othermsg {
+  background-color: var(--bg-othermsg);
+}
+
+/* Text helpers */
+.text-main {
+  color: var(--text-main);
+}
+
+.text-sub {
+  color: var(--text-sub);
+}
+
+/* Borders */
+.border-theme {
+  border-color: var(--border-color);
+}
+
+/* Inputs */
+input, textarea {
+  background-color: var(--bg-sidebar);
+  color: var(--text-main);
+  border-color: var(--border-color);
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--text-sub);
+}
+
+/* Buttons */
+.btn-theme {
+  background-color: var(--bg-panel);
+  color: white;
+}
+
+/* Scrollbar (optional nice look) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 10px;
+}
