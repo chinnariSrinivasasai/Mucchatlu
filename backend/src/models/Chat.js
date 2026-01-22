@@ -14,6 +14,7 @@ const chatSchema = new mongoose.Schema(
     },
      pinnedBy: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
      mutedBy: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+     deletedBy: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
   },
   { timestamps: true }
 );
