@@ -20,6 +20,7 @@ export const protect = async (req, res, next) => {
 
     // 🔥 THIS IS CRITICAL
     req.user = user;
+    req.userId = user._id;
 
     next();
   } catch (err) {
