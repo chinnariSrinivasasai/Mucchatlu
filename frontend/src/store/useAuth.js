@@ -17,5 +17,6 @@ login: (data) => {
     localStorage.removeItem("user");
     localStorage.removeItem("token");
     set({ user: null, token: null });
+     window.location.href = "/login";
   },
 }));
