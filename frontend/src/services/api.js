@@ -1,17 +1,24 @@
 import axios from "axios";
 
-const API_BASE =
-  import.meta.env.VITE_API_URL || "http://localhost:5000";
-
-export const api = axios.create({
-  baseURL: API_BASE + "/api",
+const api = axios.create({
+  baseURL: "https://mucchatlu.onrender.com/api",
 });
 
-// Add token automatically
-api.interceptors.request.use((config) => {
-  const token = localStorage.getItem("token");
-  if (token) {
-    config.headers.Authorization = "Bearer " + token;
-  }
-  return config;
-});
+// ===============================
+// 🔐 AUTO ATTACH TOKEN
+// ===============================
+api.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem("token");
+
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
+
+export { api };
+export default api;
